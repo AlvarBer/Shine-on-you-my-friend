@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Target
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: room_background
+    uniqueID: 2130462133
+    locked: 0
+  - name: props
+    uniqueID: 568662103
+    locked: 0
+  - name: child
+    uniqueID: 3756614205
     locked: 0
