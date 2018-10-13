@@ -65,8 +65,11 @@ public class EnemyMovement : CharacterMovement {
 
 	void Start() {
 		currentWaypoint = calculateCurrentWaypoint();
-		transform.position = currentWaypoint.position;
 
+		// Remove condition for non-debug
+		if (movementType != Movement.Chasing) {
+			transform.position = currentWaypoint.position;
+		}
 		// For debug
 		if (movementType == Movement.Chasing) {
 			this.speed = speedWhileChasing;
