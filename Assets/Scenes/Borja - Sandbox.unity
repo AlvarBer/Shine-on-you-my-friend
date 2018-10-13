@@ -210,19 +210,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 38833678}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &38833680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -396,6 +396,41 @@ Prefab:
     - target: {fileID: 4700721789264410, guid: 4d874069946113e47b6df6d6e751ce53, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 61602403700790076, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50851534251792316, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50851534251792316, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50851534251792316, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_Mass
+      value: 53.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 50851534251792316, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 370.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 50851534251792316, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276548337775162, guid: 4d874069946113e47b6df6d6e751ce53,
+        type: 2}
+      propertyPath: speed
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d874069946113e47b6df6d6e751ce53, type: 2}
@@ -692,7 +727,7 @@ Prefab:
       objectReference: {fileID: 1480034409}
     - target: {fileID: 1632327908865110, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}
       propertyPath: m_Name
-      value: Enemy - Patrol (1)
+      value: Enemy - Loop
       objectReference: {fileID: 0}
     - target: {fileID: 114327785086625842, guid: 616160559f64d73488eff5a779cfc9b3,
         type: 2}
@@ -805,6 +840,10 @@ Prefab:
       propertyPath: currentWaypoint
       value: 
       objectReference: {fileID: 1580927311}
+    - target: {fileID: 1632327908865110, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}
   m_IsPrefabAsset: 0
