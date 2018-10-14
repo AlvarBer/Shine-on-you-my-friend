@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632327908865110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 2.42, z: 0}
+  m_LocalPosition: {x: 3.97, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.022723317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0909524, y: 1.8635466}
   m_EdgeRadius: 0
 --- !u!114 &114305516065844802
 MonoBehaviour:
@@ -103,7 +103,7 @@ MonoBehaviour:
   detectionRadius: 2.48
   targetLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   eventType: 0
 --- !u!114 &114327785086625842
 MonoBehaviour:
@@ -117,12 +117,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  waypoints: []
-  movementType: 0
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  movementType: 1
   speedWhileChasing: 8
   girlLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   currentWaypoint: {fileID: 0}
   waypointer: 0
   waypointerDelta: 1

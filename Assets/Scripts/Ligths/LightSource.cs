@@ -31,25 +31,25 @@ public class LightSource : MonoBehaviour {
 	private void Update () {
 		if (isOn) {
 			ReadInput();
-			spriteRenderer.color = Color.green;
+			//spriteRenderer.color = Color.green;
 		} else {
-			spriteRenderer.color = Color.white;
+			//spriteRenderer.color = Color.white;
 		}
 	}
 
 	private void ReadInput() {
 		float inputDelta;
 		if (rotation == Rotation.Up) {
-			inputDelta = - Input.GetAxisRaw("Horizontal");
+			inputDelta = - Input.GetAxisRaw("Horizontal2");
 		}
 		else if (rotation == Rotation.Right) {
-			inputDelta = Input.GetAxisRaw("Vertical");
+			inputDelta = Input.GetAxisRaw("Vertical2");
 		}
 		else if (rotation == Rotation.Down) {
-			inputDelta = Input.GetAxisRaw("Horizontal");
+			inputDelta = Input.GetAxisRaw("Horizontal2");
 		}
 		else {
-			inputDelta = - Input.GetAxisRaw("Vertical");
+			inputDelta = - Input.GetAxisRaw("Vertical2");
 		}
 		emitter.angle += inputDelta * shiftSpeed * Time.deltaTime;
 	}
