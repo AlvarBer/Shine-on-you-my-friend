@@ -12,8 +12,7 @@ public class Emitter : MonoBehaviour {
 	private int rayCount = 10;
 	private float angle;
 	[Range(-25f, 25f)]
-	[SerializeField]
-	private float angleChange = 0f;
+	public float angleChange = 0f;
 	[SerializeField]
 	private Color lightColor;
 	[SerializeField]
