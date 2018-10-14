@@ -7,7 +7,8 @@ public class EventsManager : Singleton<EventsManager>
     public enum EventType
     {
         TARGET_OVERLAP,
-        DEFAULT
+        DEFAULT,
+        TARGET_DEATH,
     }
 
     public delegate void EventHandler(object sender, BaseEvent e);

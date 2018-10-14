@@ -8,11 +8,16 @@ public enum Movement {
 	Loop,
 	Chasing,
 }
+
+
+[RequireComponent (typeof (Collider2D))] 
+
 public class EnemyMovement : CharacterMovement {
 
 	public Transform[] waypoints;
 	public Movement movementType;
 	public float speedWhileChasing = 8f;
+	public LayerMask girlLayer;
 
 	// Extra unnecessary mutable state to hack in chasing the girl.
 	public Transform currentWaypoint;
@@ -35,7 +40,7 @@ public class EnemyMovement : CharacterMovement {
 				}
 				break;
 			case Movement.Chasing:
-				print("BL: Character dead!");
+				// This block is intentioally left blank
 				break;
 		}
 		currentWaypoint = calculateCurrentWaypoint();
@@ -63,6 +68,22 @@ public class EnemyMovement : CharacterMovement {
 		}
 	}
 
+	private void OnPlayerSeen(object sender, BaseEvent e) {
+        var realEvent = (EventWithGurl)e;
+		startChasing(realEvent.gurl);
+    }
+
+	private void OnPlayerCollission() {
+		EventsManager.Instance.RouteEvent(this, new BaseEvent(EventsManager.EventType.TARGET_DEATH));
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (collision.gameObject.layer == girlLayer) {
+		   OnPlayerCollission();
+	   }
+    }
+
 	void Start() {
 		currentWaypoint = calculateCurrentWaypoint();
 
@@ -75,6 +96,10 @@ public class EnemyMovement : CharacterMovement {
 			this.speed = speedWhileChasing;
 		}
 	}
+
+	private void Awake() {
+        EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_OVERLAP, OnPlayerSeen);
+    }
 
 	void FixedUpdate () {
 		moveToWaypoint();

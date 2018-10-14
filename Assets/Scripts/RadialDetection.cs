@@ -16,7 +16,12 @@ public class RadialDetection : MonoBehaviour
 
         if (collider != null)
         {
-            EventsManager.Instance.RouteEvent(this, new BaseEvent(EventsManager.EventType.TARGET_OVERLAP));
+            EventsManager.Instance.RouteEvent(
+                this,
+                new EventWithGurl(
+                    EventsManager.EventType.TARGET_OVERLAP,
+                    collider.gameObject.transform)
+            );
         }
     }
 

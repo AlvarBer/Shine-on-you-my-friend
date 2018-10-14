@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50711256130569348}
   - component: {fileID: 114327785086625842}
   - component: {fileID: 61579644513840220}
+  - component: {fileID: 114305516065844802}
   m_Layer: 0
   m_Name: Enemy - Patrol
   m_TagString: Untagged
@@ -50,19 +51,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632327908865110}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61579644513840220
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -88,6 +89,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114305516065844802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632327908865110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de82bd7d37598240b78eea9a8f6ab67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 2
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114327785086625842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,10 +116,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  direction: {x: 0, y: 0}
   waypoints: []
   movementType: 0
   speedWhileChasing: 8
+  girlLayer:
+    serializedVersion: 2
+    m_Bits: 512
   currentWaypoint: {fileID: 0}
 --- !u!212 &212886464156252642
 SpriteRenderer:
