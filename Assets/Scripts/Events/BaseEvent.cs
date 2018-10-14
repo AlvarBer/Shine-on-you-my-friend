@@ -21,3 +21,13 @@ public class EventWithGurl : BaseEvent
         this.gurl = daGurl;
     }
 }
+
+public class NextLevelEvent : BaseEvent
+{
+    public EventsManager.EventType type;
+    public string nextLevel;
+
+    public NextLevelEvent(EventsManager.EventType type, string nextLevel) : base(type) {
+        this.nextLevel = nextLevel;
+    }
+}

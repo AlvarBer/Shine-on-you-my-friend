@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void OnNextLevel(object sender, BaseEvent e) {
-        SceneManager.LoadScene("Level2");
+        var realEvent = (NextLevelEvent)e;
+        SceneManager.LoadScene(realEvent.nextLevel);
     }
 }

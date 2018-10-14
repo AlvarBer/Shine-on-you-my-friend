@@ -10,6 +10,9 @@ public class RadialDetection : MonoBehaviour
     [SerializeField]
     private LayerMask targetLayerMask;
 
+    [SerializeField]
+    private EventsManager.EventType eventType;
+
     private void Update()
     {
         Collider2D collider = Physics2D.OverlapCircle(transform.position, detectionRadius, targetLayerMask);
@@ -19,7 +22,7 @@ public class RadialDetection : MonoBehaviour
             EventsManager.Instance.RouteEvent(
                 this,
                 new EventWithGurl(
-                    EventsManager.EventType.TARGET_OVERLAP,
+                    eventType,
                     collider.gameObject.transform)
             );
         }

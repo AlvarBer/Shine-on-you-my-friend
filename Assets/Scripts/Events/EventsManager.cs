@@ -9,6 +9,7 @@ public class EventsManager : Singleton<EventsManager>
         TARGET_OVERLAP,
         DEFAULT,
         TARGET_DEATH,
+        PLAYER_OVERLAP_EXIT,
         NEXT_LEVEL,
     }
 

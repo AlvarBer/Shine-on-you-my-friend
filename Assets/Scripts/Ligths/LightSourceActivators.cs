@@ -21,7 +21,6 @@ public class LightSourceActivators : MonoBehaviour {
 	
 	void moveIndex(int delta) {
 		lightSources[lightSourceIndex].Off();
-		print("BL: index " + lightSourceIndex + " delta " +  delta + " result " +  mod((lightSourceIndex + delta), lightSources.Length));
 		lightSourceIndex = mod((lightSourceIndex + delta), lightSources.Length);
 		lightSources[lightSourceIndex].On();
 	}
