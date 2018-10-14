@@ -19,12 +19,35 @@ public class RadialDetection : MonoBehaviour
 
         if (collider != null)
         {
-            EventsManager.Instance.RouteEvent(
-                this,
-                new EventWithGurl(
-                    eventType,
-                    collider.gameObject.transform)
-            );
+            // EventsManager.Instance.RouteEvent(
+            //     this,
+            //     new EventWithGurl(
+            //         eventType,
+            //         collider.gameObject.transform)
+            // );
+            EnemyMovement eM = GetComponent<EnemyMovement>();
+
+            if (eM != null)
+            {
+                eM.OnPlayerSeen(
+                    this,
+                    new EventWithGurl(
+                        eventType,
+                        collider.gameObject.transform)
+                );
+            }
+            
+            NextLevel nL = GetComponent<NextLevel>();
+
+            if (nL != null)
+            {
+                nL.OnPlayerOverlapMe(
+                    this,
+                    new EventWithGurl(
+                        eventType,
+                        collider.gameObject.transform)
+                );
+            }
         }
     }
 

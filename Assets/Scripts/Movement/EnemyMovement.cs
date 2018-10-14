@@ -18,6 +18,8 @@ public class EnemyMovement : CharacterMovement {
 	public Movement movementType;
 	public float speedWhileChasing = 8f;
 	public LayerMask girlLayer;
+	public float startSpeed;
+	private Movement startMovement;
 
 	// Extra unnecessary mutable state to hack in chasing the girl.
 	public Transform currentWaypoint;
@@ -68,7 +70,7 @@ public class EnemyMovement : CharacterMovement {
 		}
 	}
 
-	private void OnPlayerSeen(object sender, BaseEvent e) {
+	public void OnPlayerSeen(object sender, BaseEvent e) {
         var realEvent = (EventWithGurl)e;
 		startChasing(realEvent.gurl);
     }
@@ -77,14 +79,22 @@ public class EnemyMovement : CharacterMovement {
 		EventsManager.Instance.RouteEvent(this, new BaseEvent(EventsManager.EventType.TARGET_DEATH));
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
-    {
-       if (collision.gameObject.tag == "LaPollaDeLaura") {
-		   OnPlayerCollission();
-	   }
-    }
+	private void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.tag == "LaPollaDeLaura") {
+			OnPlayerCollission();
+		}
+		else if (collision.collider.tag == "Light") {
+			print("BL: Kight collission");
+			this.movementType= startMovement;
+			this.waypointer = 0;
+			this.speed = startSpeed;
+			this.waypointReached();
+		}
+	}
 
 	void Start() {
+		startSpeed = this.speed;
+		startMovement = this.movementType;
 		EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_OVERLAP, OnPlayerSeen);
 		currentWaypoint = calculateCurrentWaypoint();
 		transform.position = currentWaypoint.position;

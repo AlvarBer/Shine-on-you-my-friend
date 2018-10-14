@@ -10,7 +10,7 @@ public class NextLevel : MonoBehaviour {
 	void Start () {
 		EventsManager.Instance.SubscribeTo(EventsManager.EventType.PLAYER_OVERLAP_EXIT, OnPlayerOverlapMe);
 	}
-	void OnPlayerOverlapMe (object o, BaseEvent e) {
+	public void OnPlayerOverlapMe (object o, BaseEvent e) {
 		EventsManager.Instance.RouteEvent(this, new NextLevelEvent(EventsManager.EventType.NEXT_LEVEL, nextLevel));
 	}
 }
