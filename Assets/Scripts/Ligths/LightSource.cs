@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LightSource : MonoBehaviour {
-	// TODO: 4 directions
-	public enum Rotation {Horizontal, Vertical};
+	public enum Rotation {Up, Right, Down, Left};
 	private bool isOn;
 	[SerializeField]
 	private Rotation rotation;
@@ -40,11 +39,17 @@ public class LightSource : MonoBehaviour {
 
 	private void ReadInput() {
 		float inputDelta;
-		if (rotation == Rotation.Horizontal) {
+		if (rotation == Rotation.Up) {
+			inputDelta = - Input.GetAxisRaw("Horizontal");
+		}
+		else if (rotation == Rotation.Right) {
+			inputDelta = Input.GetAxisRaw("Vertical");
+		}
+		else if (rotation == Rotation.Down) {
 			inputDelta = Input.GetAxisRaw("Horizontal");
 		}
 		else {
-			inputDelta = Input.GetAxisRaw("Vertical");
+			inputDelta = - Input.GetAxisRaw("Vertical");
 		}
 		emitter.angle += inputDelta * shiftSpeed * Time.deltaTime;
 	}

@@ -10,13 +10,16 @@ public class Emitter : MonoBehaviour {
 	[Range(0, 25f)]
 	[SerializeField]
 	private int rayCount = 10;
+	[SerializeField]
+	private float angleClamp = 30f;
+	[SerializeField]
 	private float _angle;
 	public float angle {
 		get {
 			return _angle;
 		}
 		set {
-			_angle = Mathf.Clamp(value, -30f, 30f);
+			_angle = Mathf.Clamp(value, -angleClamp, angleClamp);
 		}
 	}
 	[SerializeField]
@@ -48,9 +51,9 @@ public class Emitter : MonoBehaviour {
 	}
 
 	private void Emit() {
-		angle = transform.rotation.eulerAngles.z + angle;
+		float actualAngle = transform.rotation.eulerAngles.z + _angle;
 		float spaceBetweenRays = (halfWidth * 2) / rayCount;
-		float theta = angle * Mathf.PI / 180;
+		float theta = actualAngle * Mathf.PI / 180;
 		Vector2 direction = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
 		Vector2 directionPerp = Vector2.Perpendicular(direction);
 		Vector2 initialPos = new Vector2(this.transform.position.x, this.transform.position.y) + (directionPerp * halfWidth);
