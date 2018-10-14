@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de82bd7d37598240b78eea9a8f6ab67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 2
+  detectionRadius: 2.48
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d20f1b195eab147a9c35041915d3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
   waypoints: []
   movementType: 0
   speedWhileChasing: 8
@@ -123,6 +123,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   currentWaypoint: {fileID: 0}
+  waypointer: 0
+  waypointerDelta: 1
 --- !u!212 &212886464156252642
 SpriteRenderer:
   m_ObjectHideFlags: 1
