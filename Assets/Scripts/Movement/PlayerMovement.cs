@@ -16,14 +16,4 @@ public class PlayerMovement : CharacterMovement {
 		this.direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		Move();
 	}
-
-	private void Awake()
-    {
-        EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_DEATH, OnPlayerDeath);
-    }
-
-    private void OnPlayerDeath(object sender, BaseEvent e)
-    {
-		print("BL: YOU DIED");
-    }
 }

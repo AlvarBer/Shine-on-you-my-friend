@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    private void Awake()
+    private void Start()
     {
         EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_DEATH, OnPlayerDeath);
+        EventsManager.Instance.SubscribeTo(EventsManager.EventType.NEXT_LEVEL, OnNextLevel);
     }
 
     private void OnPlayerDeath(object sender, BaseEvent e)
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    private void OnNextLevel(object sender, BaseEvent e) {
+        SceneManager.LoadScene("Level2");
     }
 }

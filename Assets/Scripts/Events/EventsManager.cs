@@ -9,6 +9,7 @@ public class EventsManager : Singleton<EventsManager>
         TARGET_OVERLAP,
         DEFAULT,
         TARGET_DEATH,
+        NEXT_LEVEL,
     }
 
     public delegate void EventHandler(object sender, BaseEvent e);
