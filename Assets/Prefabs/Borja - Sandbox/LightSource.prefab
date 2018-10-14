@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4896214975605552}
   - component: {fileID: 212544253687481004}
-  - component: {fileID: 114485928021687600}
+  - component: {fileID: 114613335067217816}
+  - component: {fileID: 114942554637802592}
   m_Layer: 0
   m_Name: LightSource
   m_TagString: Untagged
@@ -34,14 +35,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1070677294949482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.14, y: 3.23, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.45, y: 4.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114485928021687600
+--- !u!114 &114613335067217816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,6 +53,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d55db28e453204881965d04d41c43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 1
+  shiftSpeed: 25
+--- !u!114 &114942554637802592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070677294949482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964c18a350ed342429d21fa1ceb4f90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halfWidth: 1
+  rayCount: 10
+  angleChange: 0
+  lightColor: {r: 0.9992644, g: 1, b: 0.4198113, a: 0.38431373}
+  rayMaxLength: 20
+  filter: {fileID: 0}
+  polyCollider: {fileID: 0}
 --- !u!212 &212544253687481004
 SpriteRenderer:
   m_ObjectHideFlags: 1
