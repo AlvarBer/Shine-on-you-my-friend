@@ -10,9 +10,15 @@ public class Emitter : MonoBehaviour {
 	[Range(0, 25f)]
 	[SerializeField]
 	private int rayCount = 10;
-	private float angle;
-	[Range(-25f, 25f)]
-	public float angleChange = 0f;
+	private float _angle;
+	public float angle {
+		get {
+			return _angle;
+		}
+		set {
+			_angle = Mathf.Clamp(value, -30f, 30f);
+		}
+	}
 	[SerializeField]
 	private Color lightColor;
 	[SerializeField]
@@ -24,6 +30,9 @@ public class Emitter : MonoBehaviour {
 	private Vector2[] vertices2D;
 	private Vector2[] colliderVertices;
 
+	private float AngleSetter(float value) {
+		return value;
+	}
 
 	private void Awake() {
 		polyCollider.CreatePrimitive(rayCount);
@@ -39,7 +48,7 @@ public class Emitter : MonoBehaviour {
 	}
 
 	private void Emit() {
-		angle = transform.rotation.eulerAngles.z + angleChange;
+		angle = transform.rotation.eulerAngles.z + angle;
 		float spaceBetweenRays = (halfWidth * 2) / rayCount;
 		float theta = angle * Mathf.PI / 180;
 		Vector2 direction = new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));

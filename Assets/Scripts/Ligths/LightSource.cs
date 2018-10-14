@@ -3,30 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LightSource : MonoBehaviour {
+	// TODO: 4 directions
 	public enum Rotation {Horizontal, Vertical};
 	private bool isOn;
 	[SerializeField]
 	private Rotation rotation;
 	[SerializeField]
 	private float shiftSpeed = 25f;
-	[SerializeField]
 	private Emitter emitter;
+	private SpriteRenderer spriteRenderer;
+
+	private void Awake() {
+		emitter = GetComponent<Emitter>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+	}
 
 	public void Off() {
 		isOn = false;
+		emitter.gameObject.SetActive(false);
 	}
 
 	public void On() {
 		isOn = true;
+		emitter.gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
 	private void Update () {
-		ReadInput();
 		if (isOn) {
-			GetComponent<SpriteRenderer>().color = Color.green;
+			ReadInput();
+			spriteRenderer.color = Color.green;
 		} else {
-			GetComponent<SpriteRenderer>().color = Color.white;
+			spriteRenderer.color = Color.white;
 		}
 	}
 
@@ -38,6 +46,6 @@ public class LightSource : MonoBehaviour {
 		else {
 			inputDelta = Input.GetAxisRaw("Vertical");
 		}
-		emitter.angleChange += inputDelta * shiftSpeed * Time.deltaTime;
+		emitter.angle += inputDelta * shiftSpeed * Time.deltaTime;
 	}
 }
