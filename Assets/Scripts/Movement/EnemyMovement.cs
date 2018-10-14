@@ -21,8 +21,8 @@ public class EnemyMovement : CharacterMovement {
 
 	// Extra unnecessary mutable state to hack in chasing the girl.
 	public Transform currentWaypoint;
-	private int waypointer = 0;
-	private int waypointerDelta = 1;
+	public int waypointer = 0;
+	public int waypointerDelta = 1;
 
 	void waypointReached() {
 		switch(this.movementType) {
@@ -79,27 +79,16 @@ public class EnemyMovement : CharacterMovement {
 
 	void OnCollisionEnter2D(Collision2D collision)
     {
-       if (collision.gameObject.layer == girlLayer) {
+       if (collision.gameObject.tag == "LaPollaDeLaura") {
 		   OnPlayerCollission();
 	   }
     }
 
 	void Start() {
+		EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_OVERLAP, OnPlayerSeen);
 		currentWaypoint = calculateCurrentWaypoint();
-
-		// Remove condition for non-debug
-		if (movementType != Movement.Chasing) {
-			transform.position = currentWaypoint.position;
-		}
-		// For debug
-		if (movementType == Movement.Chasing) {
-			this.speed = speedWhileChasing;
-		}
+		transform.position = currentWaypoint.position;
 	}
-
-	private void Awake() {
-        EventsManager.Instance.SubscribeTo(EventsManager.EventType.TARGET_OVERLAP, OnPlayerSeen);
-    }
 
 	void FixedUpdate () {
 		moveToWaypoint();

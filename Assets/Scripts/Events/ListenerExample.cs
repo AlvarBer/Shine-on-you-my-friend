@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ListenerExample : MonoBehaviour
 {
+    // TODO Change to Start
     private void Awake()
     {
         EventsManager.Instance.SubscribeTo(EventsManager.EventType.DEFAULT, OnBaseEvent);
