@@ -51,8 +51,8 @@ public class RadialDetection : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, detectionRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, detectionRadius);
+    // }
 }
