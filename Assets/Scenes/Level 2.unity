@@ -2728,10 +2728,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1632327908865110, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}
-      propertyPath: m_Name
-      value: Enemy - Patrol (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 114327785086625842, guid: 616160559f64d73488eff5a779cfc9b3,
         type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -2742,20 +2738,9 @@ Prefab:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 617713097}
-    - target: {fileID: 114305516065844802, guid: 616160559f64d73488eff5a779cfc9b3,
-        type: 2}
-      propertyPath: detectionRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327785086625842, guid: 616160559f64d73488eff5a779cfc9b3,
-        type: 2}
-      propertyPath: speed
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327785086625842, guid: 616160559f64d73488eff5a779cfc9b3,
-        type: 2}
-      propertyPath: speedWhileChasing
-      value: 2.36
+    - target: {fileID: 1632327908865110, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}
+      propertyPath: m_Name
+      value: Enemy - Patrol (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 616160559f64d73488eff5a779cfc9b3, type: 2}

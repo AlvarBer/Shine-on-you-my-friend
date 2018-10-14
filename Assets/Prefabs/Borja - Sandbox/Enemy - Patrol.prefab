@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632327908865110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.97, y: 0.81, z: 0}
+  m_LocalPosition: {x: 4.78, y: 2.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de82bd7d37598240b78eea9a8f6ab67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 2.48
+  detectionRadius: 2
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -116,15 +116,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d20f1b195eab147a9c35041915d3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   movementType: 1
-  speedWhileChasing: 8
+  speedWhileChasing: 2.5
   girlLayer:
     serializedVersion: 2
     m_Bits: 1024
+  startSpeed: 0
   currentWaypoint: {fileID: 0}
   waypointer: 0
   waypointerDelta: 1
