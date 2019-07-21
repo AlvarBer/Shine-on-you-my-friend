@@ -84,7 +84,6 @@ public class EnemyMovement : CharacterMovement {
 			OnPlayerCollission();
 		}
 		else if (collision.collider.tag == "Light") {
-			print("BL: Kight collission");
 			this.movementType= startMovement;
 			this.waypointer = 0;
 			this.speed = startSpeed;

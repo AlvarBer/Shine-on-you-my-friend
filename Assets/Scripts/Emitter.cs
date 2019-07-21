@@ -71,7 +71,7 @@ public class Emitter : MonoBehaviour {
 			}
 			vertices2D[i+1] = hit.point;
 			colliderVertices[i+1] = hit.point;
-			Debug.DrawLine(actualPos, hit.point, color: Color.red);
+			//Debug.DrawLine(actualPos, hit.point, color: Color.red);
 		}
 		Poly(vertices2D);
 	}
